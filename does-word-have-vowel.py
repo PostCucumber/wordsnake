@@ -23,7 +23,7 @@ def buildAlphabet(alphabet):
 def thisWordHasVowel(thisWord,vowels):
     for vowel in vowels: 
         if vowel in thisWord:
-            return 1 # find way to sum this for countVowels?
+            return True
 
 def countVowels(thisWord,vowels,vowelCount):
     for vowel in vowels:
