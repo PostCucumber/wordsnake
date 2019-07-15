@@ -9,9 +9,9 @@ def main():
     
     if thisWordHasVowel(thisWord,vowels):
         vowelCount = countVowels(thisWord,vowels,vowelCount)
-        print thisWord, 'has', vowelCount, 'vowels'
+        print thisWord, 'has', vowelCount, 'vowel(s)'
     elif thisWordContainsY(thisWord):
-        vowelCount = countVowels(thisWord,vowels,vowelCount)
+        vowelCount - countVowels(thisWord,'y',vowelCount)
         print thisWord, "has", vowelCount, ", but they are all 'y'"
     else:
         print thisWord, 'does not have any vowels.'
