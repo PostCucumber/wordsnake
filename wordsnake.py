@@ -8,16 +8,25 @@ def main():
 
     print "Does this word have a vowel?"
     thisWord = raw_input("enter a word: ")
-    
+    thisWord = makeCharArray(thisWord)
+    print(thisWord)
     characterCount = len(thisWord)
-    print(characterCount)
-    vowelCount,consonantCount = countVowels(thisWord,characterCount,vowels,vowelCount,consonantCount)
+    print "Amount of characters: ",characterCount
+    vowelCount = countVowels(thisWord,characterCount,vowels,vowelCount)
+    print "Amount of vowels: ",vowelCount
 
 def buildAlphabet(alphabet):
     for letter in range(97,122):
         alphabet.append (chr(letter))
 
-def countVowels(thisWord,characterCount,vowels,vowelCount,consonantCount):
+def countVowels(thisWord,characterCount,vowels,vowelCount):
+    for character in thisWord:
+        for i in range(0,4):
+            if character == vowels[i]:
+                ++vowelCount
+    return vowelCount
+    
+    '''
     for i in range(0,characterCount):
         if thisWord[i] == vowels[i]:
             ++vowelCount
@@ -25,7 +34,8 @@ def countVowels(thisWord,characterCount,vowels,vowelCount,consonantCount):
             ++vowelCount
         else:
             ++consonantCount
-    return vowelCount,consonantCount          
+    return vowelCount
+    '''
 
 def makeCharArray(thisWord):
     return [char for char in thisWord]
