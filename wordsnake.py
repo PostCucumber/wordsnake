@@ -1,38 +1,28 @@
 def main():
     alphabet = []
     alphabet = buildAlphabet(alphabet)
+    characterCount = 0
     vowels = ['a','e','i','o','u']
     vowelCount = 0
+    consonantCount = 0
 
     print "Does this word have a vowel?"
     thisWord = raw_input("enter a word: ")
-    
-    if thisWordHasVowel(thisWord,vowels):
-        vowelCount = countVowels(thisWord,vowels,vowelCount)
-        print thisWord, 'has', vowelCount, 'vowel(s)'
-    elif thisWordContainsY(thisWord):
-        vowelCount = countVowels(thisWord,'y',vowelCount)
-        print thisWord, "has", vowelCount, ", but they are all 'y'"
-    else:
-        print thisWord, 'does not have any vowels.'
+    characterCount = len(thisWord)
+    vowelCount,consonantCount = countVowels(thisWord,characterCount,vowels,vowelCount)
 
 def buildAlphabet(alphabet):
     for letter in range(97,122):
-        alphabet.append(chr(letter))
+        alphabet.append (chr(letter))
 
-def thisWordHasVowel(thisWord,vowels):
-    for vowel in vowels: 
-        if vowel in thisWord:
-            return True
-
-def countVowels(thisWord,vowels,vowelCount):
-    for vowel in vowels:
-        if vowel in thisWord:
-            vowelCount += 1
-    return vowelCount
-
-def thisWordContainsY(thisWord):
-    if 'y' in thisWord:
-            return True
-
+def countVowels(thisWord,characterCount,vowels,vowelCount):
+    for i in range(0,characterCount):
+        if thisWord[i] == vowels[i]:
+            ++vowelCount
+        elif thisWord[1] == 'y':
+            ++vowelCount
+        else:
+            ++consonantCount
+    return vowelCount,consonantCount          
+            
 main()
